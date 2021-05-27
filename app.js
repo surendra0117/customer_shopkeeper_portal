@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV != "production") {
+  require("dotenv").config();
+}
+
 var express = require("express");
 var app = express();
 var body = require("body-parser");
@@ -461,7 +465,7 @@ app.post("/:senderid/sendmessage", function (req, res) {
  *
  * PORT LISTENING
  */
-const port = 3040;
+const port = process.env.PORT || 3040;
 app.listen(port, "localhost", function () {
   console.log(`Connected to server on port ${port}`);
 });
