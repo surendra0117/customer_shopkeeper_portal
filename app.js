@@ -465,7 +465,12 @@ app.post("/:senderid/sendmessage", function (req, res) {
  *
  * PORT LISTENING
  */
-const port = process.env.PORT || 3040;
+const port = process.env.PORT || 5040;
 app.listen(port, "localhost", function () {
   console.log(`Connected to server on port ${port}`);
 });
+/**
+ * commands
+ * git checkout heroku_deployment
+ * git push heroku heroku_deployment:main
+ */

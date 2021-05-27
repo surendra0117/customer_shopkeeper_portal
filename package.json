@@ -18,5 +18,11 @@
     "http": "0.0.1-security",
     "mongoose": "^5.9.10",
     "node-sessionstorage": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "engines": {
+    "node": "14.15.0"
   }
 }
