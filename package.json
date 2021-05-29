@@ -16,7 +16,7 @@
     "express": "^4.17.1",
     "html": "^1.0.0",
     "http": "0.0.1-security",
-    "mongoose": "^5.9.10",
+    "mongoose": "^5.12.12",
     "node-sessionstorage": "^1.0.0"
   },
   "devDependencies": {
