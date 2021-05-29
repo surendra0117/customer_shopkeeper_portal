@@ -38,13 +38,22 @@ app.set("view engine", "ejs");
  *
  * DATABASE
  */
+
+const DATABASE_URI = process.env.DATABASE_URI;
+
+// console.log(DATABASE_URI);
+
 mongoose
-  .connect("mongodb://localhost:27017/shopsiteDB", {
+  .connect(DATABASE_URI || "mongodb://localhost:27017/shopsiteDB", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true,
+    useFindAndModify: false,
   })
-  .catch((error) => handleError(error));
+  .then(() => {
+    console.log("SUCCESSFUL DATABASE CONNECTION");
+  })
+  .catch((error) => console.log(`ERROR: ${error}`));
 mongoose.set("useFindAndModify", false);
 
 var itemschema = new mongoose.Schema({
@@ -105,6 +114,12 @@ var messagemodel = mongoose.model("messagemodel", messageschema);
  *
  * REQUESTS
  */
+
+app.get("/", function (req, res) {
+  const fileLocation = path.join(__dirname, "views/homepage.html");
+  res.sendFile(fileLocation);
+});
+
 app.get("/login", function (req, res) {
   res.render("login");
 });
