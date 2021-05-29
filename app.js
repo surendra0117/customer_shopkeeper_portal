@@ -39,12 +39,15 @@ app.set("view engine", "ejs");
  * DATABASE
  */
 
-const DATABASE_URI = process.env.DATABASE_URI;
+const DATABASE_URI =
+  process.env.NODE_ENV == "production"
+    ? process.env.DATABASE_URI
+    : "mongodb://localhost:27017/shopsiteDB";
 
 // console.log(DATABASE_URI);
 
 mongoose
-  .connect(DATABASE_URI || "mongodb://localhost:27017/shopsiteDB", {
+  .connect(DATABASE_URI, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true,
