@@ -484,7 +484,7 @@ app.post("/:senderid/sendmessage", function (req, res) {
  * PORT LISTENING
  */
 const port = process.env.PORT || 5040;
-app.listen(port, "localhost", function () {
+app.listen(port, function () {
   console.log(`Connected to server on port ${port}`);
 });
 /**
